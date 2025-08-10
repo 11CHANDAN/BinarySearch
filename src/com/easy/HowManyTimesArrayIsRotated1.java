@@ -1,6 +1,6 @@
 package com.easy;
 
-public class HowManyTimesArrayIsRotated {
+public class HowManyTimesArrayIsRotated1 {
 
 	public static void main(String[] args) {
 
@@ -10,7 +10,7 @@ public class HowManyTimesArrayIsRotated {
 		 * between 0 and n-1 (including). Determine the number of rotations performed on
 		 * the array.
 		 */
-		HowManyTimesArrayIsRotated arrayIsRotated = new HowManyTimesArrayIsRotated();
+		HowManyTimesArrayIsRotated1 arrayIsRotated = new HowManyTimesArrayIsRotated1();
 
 		int[] nums = {4, 5, 6, 7, 0, 1, 2, 3}; //Output: 4
 		System.out.println(arrayIsRotated.findKRotation(nums));

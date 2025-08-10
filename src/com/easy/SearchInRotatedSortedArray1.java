@@ -1,4 +1,4 @@
-package com.easy;
+	package com.easy;
 
 public class SearchInRotatedSortedArray1 {
 

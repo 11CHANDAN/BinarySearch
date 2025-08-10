@@ -52,7 +52,7 @@ public class SeachInsertPosition {
 
 		}
 		
-		return ans;
+		return low;
 	}
 
 }
