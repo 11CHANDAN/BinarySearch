@@ -20,29 +20,40 @@ public class HowManyTimesArrayIsRotated1 {
 
 		nums = new int[] {7,8,1,2,3,4,5,6}; //Output: 2
 		System.out.println(arrayIsRotated.findKRotation(nums));
+		
+		nums = new int[] {90,-87,-78,-65,-49,-29,-28,-23,-2,7,12,14,24,40,46,55,76,77,80,83};
+		System.out.println(arrayIsRotated.findKRotation(nums)); //Output 1
 	}
 
-	public int findKRotation(int[] nums) {
-		int low = 0;
-		int high = nums.length -1;
-		int minIdx = -1;
+	public int findKRotation(int[] arr) {
+        int low = 0, high = arr.length - 1;
+        int ans = Integer.MAX_VALUE;
+        int index = -1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (arr[low] <= arr[high]) {
+                if (arr[low] < ans) {
+                    index = low;
+                    ans = arr[low];
+                }
+                break;
+            }
 
-		while(low<=high) {
-			int mid = low+(high-low)/2;
-
-			if(nums[low]<=nums[high]) {
-				return low;
-			}else if(nums[low]<=nums[mid]) {
-				minIdx = low;
-				low = mid+1;
-			}else {
-				minIdx = mid;
-				high = mid-1;
-			}
-		}
-
-		return minIdx;
-
-	}
+            if (arr[low] <= arr[mid]) {
+                if (arr[low] < ans) {
+                    index = low;
+                    ans = arr[low];
+                }
+                low = mid + 1;
+            } else {
+                if (arr[mid] < ans) {
+                    index = mid;
+                    ans = arr[mid];
+                }
+                high = mid - 1;
+            }
+        }
+        return index;
+    }
 
 }

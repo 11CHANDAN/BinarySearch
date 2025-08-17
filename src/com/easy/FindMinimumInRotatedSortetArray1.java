@@ -18,6 +18,9 @@ public class FindMinimumInRotatedSortetArray1 {
 
 		nums = new int[] {7,8,1,2,3,4,5,6};
 		System.out.println(rotatedSortetArray.findMin(nums));//Output: 1
+		
+		nums = new int[] {-33,-29,-25,-20,-19,-10,6,19,43,44,46,56,62,65,82,88,89,94,98,-85,-83,-71,-65,-46};
+		System.out.println(rotatedSortetArray.findMin(nums));//Output -85
 
 	}
 
@@ -31,12 +34,12 @@ public class FindMinimumInRotatedSortetArray1 {
 			if(nums[low]<=nums[high]){
 				ans = Math.min(ans, nums[low]);
 				break;
-			}else if(nums[low]<nums[mid]) {
+			}else if(nums[low] <= nums[mid]) {
 				ans = Math.min(ans, nums[low]);
 				low = mid+1;
 			}else {
 				ans =  Math.min(ans, nums[mid]);
-				high = mid -1;
+				high = mid-1;
 			}
 		}
 		return ans;

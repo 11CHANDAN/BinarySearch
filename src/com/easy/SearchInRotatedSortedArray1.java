@@ -11,11 +11,10 @@ public class SearchInRotatedSortedArray1 {
 		 */
 		SearchInRotatedSortedArray1 searchInRotatedSortedArray = new SearchInRotatedSortedArray1();
 		
-		int[] nums = {4,5,6,7,0,1,2};
+		int[] nums = {43,45,50,51,62,66,86,89,90,92,98,-96,-95,-88,-86,-84,-79,-73,-34,-32,-13,-7,-1,6,16,31,38,42};
 		
-		System.out.println(searchInRotatedSortedArray.search(nums, 0)); // Output: 4
+		System.out.println(searchInRotatedSortedArray.search(nums, -32));
 		
-		System.out.println(searchInRotatedSortedArray.search(nums, 3)); // Output: 3
 	}
 
 	public int search(int[] nums, int target) {

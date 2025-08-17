@@ -23,35 +23,40 @@ public class HowManyTimesArrayIsRotated2 {
 		System.out.println(arrayIsRotated2.findKRotation(nums));
 	}
 	
-	public int findKRotation(int[] nums) {
-		int low =0;
-		int high =nums.length-1;
-		int minIdx = 0;
-		
-		while(low <= high) {
-			int mid = low + (high - low)/2;
-			
-			if(nums[low] == nums[mid] && nums[mid]==nums[high]) {
-				if(nums[low]<nums[minIdx]) {
-					minIdx = low;
-				}
-				low+=1;
-				high-=1;
-			}else if(nums[low]<=nums[mid]) {
-				if(nums[low]<nums[minIdx]) {
-					minIdx = low;
-				}
-				low=mid+1;
-			}else {
-				if(nums[mid]<nums[minIdx]) {
-					minIdx = mid;
-				}
-				high=mid-1;
-			}
-		}
-		
-		return minIdx;
-		
-	}
+	public int findKRotation(int[] arr) {
+        int low = 0, high = arr.length - 1;
+        int ans = Integer.MAX_VALUE;
+        int index = -1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            if (arr[low] < arr[high]) {
+                if (arr[low] < ans) {
+                    index = low;
+                    ans = arr[low];
+                }
+                break;
+            } else if(arr[low] == arr[high]) {
+            	if(arr[low] < ans) {
+            		index = low;
+            		ans = arr[low];
+            	}
+            	low += 1;
+            	high -= 1;
+            } else if (arr[low] <= arr[mid]) {
+                if (arr[low] < ans) {
+                    index = low;
+                    ans = arr[low];
+                }
+                low = mid + 1;
+            } else {
+                if (arr[mid] < ans) {
+                    index = mid;
+                    ans = arr[mid];
+                }
+                high = mid - 1;
+            }
+        }
+        return index;
+    }
 
 }
